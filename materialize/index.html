@@ -89,8 +89,31 @@ circle.set(percentageCPU/100);
 circle.setText(percentageCPU+"%");
   //Output result to console
   console.log(percentageCPU + "% CPU Usage.");
-
+  if(percentageCPU > 80)
+  {
+    //new Notification(options[0].title, options[0]);
+    notifyMe();
+  }
 }, 600);
+var options = [
+  {
+    title: "Basic Notification",
+    body: "Short message part"
+  }
+]
+
+function notifyMe() {
+    var notification = new Notification('Notification title', {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: "Hey there! You've been notified!",
+    });
+
+    notification.onclick = function () {
+      window.open("http://stackoverflow.com/a/13328397/1269037");      
+    };
+
+}
+
     </script>
     </body>
   </html>
